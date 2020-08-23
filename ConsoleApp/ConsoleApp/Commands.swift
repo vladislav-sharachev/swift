@@ -5,8 +5,8 @@ class Commands {
         let enteredText = readLine()
         return enteredText
     }
-    func addUser(_ User: [(String, String, String)]) -> [(String, String, String)] {
-        var userList = User
+    func addUser(_ users: [(String, String, String)]) -> [(String, String, String)] {
+        var usersList = users
         print("Введите имя")
         let name = getEnteredText()
         print("Введите фамилию")
@@ -14,8 +14,8 @@ class Commands {
         print("Введите номер телефона")
         let phone = getEnteredText()
         
-        userList.append((name!, surname!, phone!))
-        return userList
+        usersList.append((name!, surname!, phone!))
+        return usersList
     }
     
     func isStringNum(_ string: String?) -> Bool {
@@ -26,23 +26,23 @@ class Commands {
         return numOfUser < usersListCount && numOfUser >= 0
     }
 
-    func deleteUser(_ User: [(String, String, String)]) -> [(String, String, String)] {
-        var userList = User
+    func deleteUser(_ users: [(String, String, String)]) -> [(String, String, String)] {
+        var usersList = users
         print("Введите порядковый номер пользователя (начинается с 0)")
         let enteredText = getEnteredText()
         
         if(isStringNum(enteredText)) {
             let numOfUser = Int(enteredText!)!
             
-            if(isNumInArrayRange(numOfUser, userList.count) && !userList.isEmpty) {
-                userList.remove(at: numOfUser)
+            if(isNumInArrayRange(numOfUser, usersList.count) && !usersList.isEmpty) {
+                usersList.remove(at: numOfUser)
             }
         }
-        return userList
+        return usersList
     }
     
-    func showUsersList(_ User: [(String, String, String)]) {
-        _ = User.isEmpty ? print("Список пользователей пуст") : print(User)
+    func showUsersList(_ users: [(String, String, String)]) {
+        _ = users.isEmpty ? print("Список пользователей пуст") : print(users)
     }
     
     func startMessage() {

@@ -1,21 +1,21 @@
 import Foundation
 
-var userList = UserStorage().usersList
+var usersList = UserStorage().usersList
 var commands = Commands()
 var programOn = true
 
 while (programOn == true) {
     commands.startMessage()
-    let commandType = commands.getEnteredText()
-    switch commandType {
+    let command = commands.getEnteredText()
+    switch command {
     case "0":
         programOn = false
     case "1":
-        userList = commands.addUser(userList)
+        usersList = commands.addUser(usersList)
     case "2":
-        commands.showUsersList(userList)
+        commands.showUsersList(usersList)
     case "3":
-        userList = commands.deleteUser(userList)
+        usersList = commands.deleteUser(usersList)
     default:
         print("Упс! Комманда не найдена")
     }
